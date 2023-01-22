@@ -13,6 +13,7 @@ export default function Home() {
         <p className="font-serif font-medium text-murSecondary text-sm text-center">Greek yogurt & Kombucha</p>
         <div className="border max-w-[220px] max-h-[220px] w-[50vw] h-[50vw] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-murSecondary"></div>
       </section>
+      빌드 테스트 중입니다.
       <section className="flex justify-center items-center mt-auto mb-10 gap-2">
         <a href="https://naver.me/5OGRubmt" className="relative w-[3rem] h-[3rem] overflow-hidden rounded-2xl">
           <Image src="/static/icons/naver-map-200.png" height={200} width={200} alt="네이버 맵" />
