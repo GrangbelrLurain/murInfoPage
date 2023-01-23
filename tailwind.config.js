@@ -7,8 +7,13 @@ module.exports = {
   "./src/**/*.{js,ts,jsx,tsx}",
 ],
   theme: {
+    screens: {
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
+    },
     colors: {
-      'murPrimary': '#154826',
+      'murPrimary': '#1A4539',
       'murSecondary': '#EBC9A5',
     },
     fontFamily: {
