@@ -12,6 +12,9 @@ export default function Home() {
         <Image src="/static/image/main.png" alt="메인 이미지" height={300} width={140} />
       </section>
       <section className="absolute left-0 bottom-0 w-full flex justify-center items-center mt-auto mb-10 gap-2">
+        <a href="https://baemin.me/J3vuvD2Ggp" className="relative w-[3rem] h-[3rem] overflow-hidden rounded-2xl">
+          <Image src="/static/icons/baemin.png" alt="배민" height={200} width={200} />
+        </a>
         <a href="https://naver.me/5OGRubmt" className="relative w-[3rem] h-[3rem] overflow-hidden rounded-2xl">
           <Image src="/static/icons/naver-map-200.png" alt="네이버 지도" height={200} width={200} />
         </a>
