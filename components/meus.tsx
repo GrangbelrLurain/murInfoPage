@@ -1,6 +1,8 @@
 import useSWR from 'swr';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import noImage from '@/public/static/image/menu/null.png';
+import Image from 'next/image';
 
 const useMenus = () => {
   const { data } = useSWR('/api/menus');
@@ -24,22 +26,32 @@ const Menus = () => {
   }
   return (
     <section className="overflow-hidden">
-      <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 1000, pauseOnMouseEnter: true, }}>
+      <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 1000, pauseOnMouseEnter: true }}>
         {menuList.map((list: any, index: number) => (
           <SwiperSlide key={index}>
-            <p className="text-murSecondary text-center">{list?.이름?.title[0]?.text?.content}</p>
-            <div className="text-murSecondary flex justify-center gap-2 font-thin">
-              {list?.단위1?.rich_text.length && list?.price1?.number ? (
-                <p>
-                  {list?.단위1?.rich_text[0].text.content} : {list?.price1?.number}원
-                </p>
-              ) : null}
-              {list?.단위2?.rich_text.length && list?.price2?.number ? (
-                <p>
-                  {list?.단위2?.rich_text[0].text.content} : {list?.price2?.number}원
-                </p>
-              ) : null}
-            </div>
+            <article className="flex flex-col items-center">
+              <figure>
+                <Image
+                  src={!!list?.이미지?.files[0]?.file?.url ? list?.이미지?.files[0]?.file?.url : noImage.src}
+                  alt='상품 이미지'
+                  width={100}
+                  height={100}
+                />
+              </figure>
+              <p className="text-murSecondary text-center">{list?.이름?.title[0]?.text?.content}</p>
+              <div className="text-murSecondary flex justify-center gap-2 font-thin">
+                {list?.단위1?.rich_text.length && list?.price1?.number ? (
+                  <p>
+                    {list?.단위1?.rich_text[0].text.content} : {list?.price1?.number}원
+                  </p>
+                ) : null}
+                {list?.단위2?.rich_text.length && list?.price2?.number ? (
+                  <p>
+                    {list?.단위2?.rich_text[0].text.content} : {list?.price2?.number}원
+                  </p>
+                ) : null}
+              </div>
+            </article>
           </SwiperSlide>
         ))}
       </Swiper>
