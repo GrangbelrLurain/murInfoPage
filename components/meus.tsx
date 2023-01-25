@@ -3,13 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import noImage from '@/public/static/image/menu/null.png';
 import Image from 'next/image';
+import React from 'react';
 
 const useMenus = () => {
   const { data } = useSWR('/api/menus');
   return { data };
 };
 
-const Menus = () => {
+const Menus = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   const { data } = useMenus();
   const filterMenuList = () => {
     const menus = data?.response?.results;
@@ -25,7 +26,7 @@ const Menus = () => {
     return <section>로딩중입니다.</section>;
   }
   return (
-    <section className="overflow-hidden">
+    <section className={`overflow-hidden ${className}`} {...props}>
       <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 1000, pauseOnMouseEnter: true }}>
         {menuList.map((list: any, index: number) => (
           <SwiperSlide key={index}>
@@ -33,13 +34,13 @@ const Menus = () => {
               <figure>
                 <Image
                   src={!!list?.이미지?.files[0]?.file?.url ? list?.이미지?.files[0]?.file?.url : noImage.src}
-                  alt='상품 이미지'
+                  alt="상품 이미지"
                   width={100}
                   height={100}
                 />
               </figure>
               <p className="text-murSecondary text-center">{list?.이름?.title[0]?.text?.content}</p>
-              <div className="text-murSecondary flex justify-center gap-2 font-thin">
+              <div className="text-murSecondary flex justify-center gap-2 font-thin text-sm">
                 {list?.단위1?.rich_text.length && list?.price1?.number ? (
                   <p>
                     {list?.단위1?.rich_text[0].text.content} : {list?.price1?.number}원
