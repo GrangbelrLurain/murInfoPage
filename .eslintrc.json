@@ -1,3 +1,50 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb-base", "next"],
+  "rules": {
+    "camelcase": "off",
+    "no-console": ["error", { "allow": ["assert"] }],
+    "no-unused-vars": "off",
+    "linebreak-style": "off",
+    "no-underscore-dangle": "off",
+    "dot-notation": "off",
+    "max-len": ["warn", { "code": 120, "ignoreComments": true }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/indent": ["warn", 2],
+    "object-curly-newline": 0,
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": true,
+        "classes": true,
+        "variables": false,
+        "allowNamedExports": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.stories.tsx", "**/*.stories.mdx"] }],
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", ["parent", "sibling"], "index", "object", "type"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ]
+  }
 }
