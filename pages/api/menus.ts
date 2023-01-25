@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Client } from '@notionhq/client';
 
-const notion = new Client({ auth: process.env.DB_SECRET });
-const databaseID = process.env.DB_ID;
+const notion = new Client({ auth: process.env.NEXT_PUBLIC_DB_SECRET });
+const databaseID = process.env.NEXT_PUBLIC_DB_ID;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
