@@ -26,8 +26,30 @@ const Menus = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =>
     return <section>로딩중입니다.</section>;
   }
   return (
-    <section className={`overflow-hidden ${className}`} {...props}>
-      <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 1000, pauseOnMouseEnter: true }}>
+    <section className={`overflow-hidden w-full max-w-[1200px] mx-auto ${className}`} {...props}>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={6}
+        breakpoints={{
+          200: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+          },
+          600: {
+            slidesPerView: 3,
+          },
+          800: {
+            slidesPerView: 4,
+          },
+          1000: {
+            slidesPerView: 5,
+          },
+        }}
+        autoplay={{ delay: 1000, pauseOnMouseEnter: true }}
+        loop
+      >
         {menuList.map((list: any, index: number) => (
           <SwiperSlide key={index}>
             <article className="flex flex-col items-center">
