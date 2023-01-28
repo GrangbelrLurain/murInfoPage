@@ -29,21 +29,20 @@ const Menus = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =>
     <section className={`overflow-hidden w-full max-w-[1200px] mx-auto ${className}`} {...props}>
       <Swiper
         spaceBetween={50}
-        slidesPerView={6}
         breakpoints={{
-          200: {
+          480: {
             slidesPerView: 1,
           },
-          400: {
+          640: {
             slidesPerView: 2,
           },
-          600: {
+          876: {
             slidesPerView: 3,
           },
-          800: {
+          1024: {
             slidesPerView: 4,
           },
-          1000: {
+          1280: {
             slidesPerView: 5,
           },
         }}
@@ -62,7 +61,7 @@ const Menus = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) =>
                 />
               </figure>
               <p className="text-murSecondary text-center">{list?.이름?.title[0]?.text?.content}</p>
-              <div className="text-murSecondary flex justify-center gap-2 font-thin text-sm">
+              <div className="text-murSecondary flex justify-center gap-2 font-thin text-[10px]">
                 {list?.단위1?.rich_text.length && list?.price1?.number ? (
                   <p>
                     {list?.단위1?.rich_text[0].text.content} : {list?.price1?.number}원

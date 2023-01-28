@@ -10,7 +10,7 @@ export default function Home() {
       <section className="flex items-center justify-center h-full w-full max-h-[80px] flex-col relative">
         <Image src="/static/image/main.png" alt="메인 이미지" height={300} width={140} />
       </section>
-      <Menus className='mt-4 grow h-full'/>
+      <Menus className='mt-4 grow mb-40 flex items-center'/>
       <FooterLink className="absolute left-0 bottom-0 w-full flex justify-center items-center mt-auto mb-10 gap-2" />
     </main>
   );
